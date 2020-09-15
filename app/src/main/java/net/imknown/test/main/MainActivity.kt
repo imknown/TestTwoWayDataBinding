@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import net.imknown.test.EventObserver
 import net.imknown.test.R
 import net.imknown.test.databinding.ActivityMainBinding
 
@@ -24,9 +23,9 @@ class MainActivity : AppCompatActivity() {
         binding.activityMainViewModel = mainViewModel
         // binding.setVariable(BR.activityMainViewModel, mainViewModel)
 
-        mainViewModel.myCheckedLiveData.observe(this, EventObserver {
-            mainViewModel.print("myCheckedLiveData value: ${it.any}")
-        })
+//        mainViewModel.myCheckedLiveData.observe(this, EventObserver {
+//            mainViewModel.print("myCheckedLiveData value: ${it.any}")
+//        })
     }
 
     fun modifyView() {

@@ -44,6 +44,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> activityMainViewModel.fetchModel()}"
+            android:text="fetch model" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="@{() -> activityMainViewModel.emptyLog()}"
             android:text="empty log" />
 

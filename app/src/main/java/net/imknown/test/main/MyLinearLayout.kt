@@ -10,9 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import androidx.lifecycle.LifecycleOwner
-import net.imknown.test.Event
 import net.imknown.test.R
-import net.imknown.test.Wrapper
 import net.imknown.test.databinding.ViewMyLinearLayoutBinding
 
 class MyLinearLayout(mContext: Context, mAttributeSet: AttributeSet) :
@@ -41,14 +39,14 @@ class MyLinearLayout(mContext: Context, mAttributeSet: AttributeSet) :
 }
 
 @BindingAdapter("myChecked")
-fun CheckBox.setMyChecked(myCheckedEventWrapper: Event<Wrapper<Boolean>>?) {
-    myCheckedEventWrapper?.let {
-        isChecked = it.peekContent().any
+fun CheckBox.setMyChecked(myChecked: Boolean?) {
+    myChecked?.let {
+        isChecked = it
     }
 }
 
 @InverseBindingAdapter(attribute = "myChecked")
-fun CheckBox.getMyChecked() = Event(Wrapper(isChecked))
+fun CheckBox.getMyChecked() = isChecked
 
 @BindingAdapter("myCheckedAttrChanged")
 fun CheckBox.listenMyChecked(listener: InverseBindingListener) {
